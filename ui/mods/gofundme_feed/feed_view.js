@@ -6,7 +6,29 @@ define(['gofundme_feed/feed'], function(feed) {
       viewModel.open(!viewModel.open())
     },
     donations: ko.observable([]),
-    executeNext: function() {},
+    currentDonation: ko.observable({orders: []}),
+    currentOrder: ko.observable({}),
+    selected: function(donation) {
+      console.log(donation)
+
+      viewModel.currentDonation().selected = false
+      viewModel.currentDonation(donation)
+      donation.selected = true
+
+      if (donation.orders.length > 0) {
+        viewModel.currentOrder(donation.orders.shift())
+      } else {
+        viewModel.currentOrder({})
+      }
+    },
+    executeNext: function() {
+      donation = viewModel.currentDonation()
+      if (donation.orders.length > 0) {
+        viewModel.currentOrder(donation.orders.shift())
+      } else {
+        viewModel.currentOrder({})
+      }
+    },
     update: function() {
       feed.update().then(function(data) {
         viewModel.donations(data)
@@ -14,9 +36,13 @@ define(['gofundme_feed/feed'], function(feed) {
     },
     ready: function() {
       console.log('ready')
-      viewModel.update()
+      setTimeout(viewModel.update, 1000)
     },
   }
+
+  viewModel.currentCode = ko.computed(function() {
+    return viewModel.currentOrder().code
+  })
 
   return viewModel
 })

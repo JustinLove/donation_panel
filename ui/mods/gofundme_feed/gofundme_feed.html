@@ -17,13 +17,14 @@
         </div>
         <div class="gofundme_feed_cont" data-bind="visible: open">
           <input type="button" class="btn_commit"  data-bind="click: executeNext" value="NEXT"/>
+          <span data-bind="text: currentCode"></span>
           <table>
             <tbody data-bind="foreach: donations">
-              <tr>
+              <tr data-bind="click: function() {$parent.selected($data)}">
                 <td class="amount" data-bind="text: amount">$$</td>
                 <td class="donor" data-bind="text: donor">Doner</td>
               </tr>
-              <tr>
+              <tr data-bind="click: function() {$parent.selected($data)}">
                 <td class="comment" data-bind="text: comment" colspan="2">comment</td>
               </tr>
             </tbody>
