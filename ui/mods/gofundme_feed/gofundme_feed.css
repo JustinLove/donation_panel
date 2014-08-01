@@ -3,27 +3,24 @@ body {
 }
 
 .body_panel {
-  /* This works around an issue that is causing severe performance problems - KEF - 06.09.2014 */
-  min-height: 1px;
-  min-width: 1px;
-
   position: absolute;
+  top: 0; 
   right: 0;
-  top: 0;
+  bottom: 0;
   left: 0;
-  
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+}
+
+body-dock {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-height: 75px;
 }
 
 .gofundme_feed {
+  margin-top: 100px;
   font-size: 12px;
   font-family: 'Armata Regular';
-  max-width: 300px;
 }
 
 .gofundme_feed_control {
@@ -32,6 +29,7 @@ body {
   box-shadow: inset 1000px 1000px 1000px 1000px #000;
   position: relative;
   min-width: 20em;
+  min-height: 5em;
 }
 
 .gofundme_feed_cont {
