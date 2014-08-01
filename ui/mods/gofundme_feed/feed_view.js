@@ -8,9 +8,7 @@ define(['gofundme_feed/feed'], function(feed) {
     donations: ko.observable([]),
     executeNext: function() {},
     update: function() {
-      console.log("about to call from view update")
       feed.update().then(function(data) {
-        console.log('view gets data')
         viewModel.donations(data)
       })
     },

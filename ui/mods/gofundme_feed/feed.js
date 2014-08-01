@@ -4,7 +4,7 @@ define(['gofundme_feed/menu'], function(menu) {
 
   var process = function(html) {
     var $doners = $(html).find(".doner")
-    console.log([html, $doners])
+    //console.log([html, $doners])
     return $doners.map(function(i, doner) {
       var amount = $(doner).find('.damt').text().match(/\d+(\.\d+)?/)[0]
       var comment = $(doner).find('.dcom').text().trim()
