@@ -34,7 +34,7 @@ define([
     },
     donationWithOrders: function() {
       return viewModel.donations().filter(function(donation) {
-        return donation.unexectedOrders.length > 0
+        return donation.unexectedOrders.length > 0 && !donation.insufficient()
       })[0] || Donation({})
     },
     update: function() {
