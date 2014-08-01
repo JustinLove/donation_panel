@@ -5,5 +5,9 @@
 })()
 
 require(['gofundme_feed/feed'], function(feed) {
-  feed.update()
+  feed.update().then(function(donors) {
+    donors.forEach(function(item) {
+      console.log(item)
+    })
+  })
 })
