@@ -60,6 +60,10 @@ body-dock {
   overflow-x: visible;
 }
 
+tbody {
+  border: solid #1e7aa1 1px;
+}
+
 tbody:hover {
   background:#00b3ff;
 }
