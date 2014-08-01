@@ -20,7 +20,7 @@
           <span class="code" data-bind="text: currentCode"></span>
           <span class="minimum" data-bind="text: currentMin"></span>
           <table data-bind="foreach: donations">
-            <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected}">
+            <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected, insufficient: insufficient}">
               <tr>
                 <td class="amount" data-bind="text: amount">$$</td>
                 <td class="min-total" data-bind="text: minimum">$$</td>

@@ -68,6 +68,10 @@ tbody.selected {
   background:#1e7aa1;
 }
 
+tbody.insufficient {
+  background: #800;
+}
+
 .amount {
   text-align: right;
   color: #0f0;
