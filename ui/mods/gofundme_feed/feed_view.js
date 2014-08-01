@@ -29,8 +29,13 @@ define([
       if (donation.orders.length > 0) {
         viewModel.currentOrder(donation.orders.shift())
       } else {
-        viewModel.currentOrder({})
+        viewModel.select(viewModel.donationWithOrders())
       }
+    },
+    donationWithOrders: function() {
+      return viewModel.donations().filter(function(donation) {
+        return donation.orders.length > 0
+      })[0] || Donation({})
     },
     update: function() {
       feed.update().then(function(data) {
