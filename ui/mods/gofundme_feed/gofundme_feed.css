@@ -74,6 +74,12 @@ tbody.selected {
   font-weight: bold;
 }
 
+.min-total {
+  text-align: right;
+  color: #ff0;
+  font-weight: bold;
+}
+
 .donor {
   text-align: right;
   color: #888;
@@ -88,7 +94,7 @@ tbody.selected {
 
 .minimum {
   font-size: 20px;
-  color: #0f0;
+  color: #ff0;
   font-weight: bold;
   padding-left: 1em;
 }

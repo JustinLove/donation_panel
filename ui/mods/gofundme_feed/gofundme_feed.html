@@ -23,10 +23,11 @@
             <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected}">
               <tr>
                 <td class="amount" data-bind="text: amount">$$</td>
+                <td class="min-total" data-bind="text: minimum">$$</td>
                 <td class="donor" data-bind="text: donor">Doner</td>
               </tr>
               <tr>
-                <td class="comment" data-bind="text: comment" colspan="2">comment</td>
+                <td class="comment" data-bind="text: comment" colspan="3">comment</td>
               </tr>
             </tbody>
           </table>
