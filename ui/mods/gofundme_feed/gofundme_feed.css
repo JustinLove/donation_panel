@@ -1,0 +1,63 @@
+body {
+  background: none;
+}
+
+.body_panel {
+  /* This works around an issue that is causing severe performance problems - KEF - 06.09.2014 */
+  min-height: 1px;
+  min-width: 1px;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gofundme_feed {
+  font-size: 12px;
+  font-family: 'Armata Regular';
+  max-width: 300px;
+}
+
+.gofundme_feed_control {
+  border-image:url(coui://ui/main/shared/img/panel/img_menu_panel.png) 14 22 22 22;
+  border-width:14px 22px 22px 22px;
+  box-shadow: inset 1000px 1000px 1000px 1000px #000;
+  position: relative;
+  min-width: 20em;
+}
+
+.gofundme_feed_cont {
+  border-image:url(coui://ui/main/shared/img/panel/img_menu_panel.png) 14 22 22 22;
+  border-width:14px 22px 22px 22px;
+  box-shadow: inset 1000px 1000px 1000px 1000px #000;
+  margin:-13px 8px 0px 8px;
+  position: relative;
+}
+
+.gofundme_feed h3 {
+  margin: 0;
+  margin-bottom: -8px;
+}
+
+.gofundme_feed .control_chevron_auto {
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+.gofundme_feed table {
+  margin-bottom: -16px;
+
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: visible;
+}
+

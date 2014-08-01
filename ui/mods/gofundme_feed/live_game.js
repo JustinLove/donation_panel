@@ -4,12 +4,6 @@
   paths.sandbox_unit_menu = 'coui://ui/mods/sandbox_unit_menu'
 })()
 
-require(['gofundme_feed/feed', 'gofundme_feed/panel'], function(feed, panel) {
-  feed.update().then(function(donors) {
-    donors.forEach(function(item) {
-      console.log(item)
-    })
-  })
-
+require(['gofundme_feed/panel'], function(panel) {
   panel()
 })
