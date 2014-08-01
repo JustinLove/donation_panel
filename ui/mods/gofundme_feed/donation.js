@@ -7,6 +7,7 @@ define(function() {
     $.extend(model, donation)
     model.selected = ko.observable(false)
     model.orders = model.orders || []
+    model.unexectedOrders = model.orders.concat()
     return model
   }
 

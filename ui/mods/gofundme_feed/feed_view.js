@@ -18,23 +18,23 @@ define([
       viewModel.currentDonation(donation)
       donation.selected(true)
 
-      if (donation.orders.length > 0) {
-        viewModel.currentOrder(donation.orders.shift())
+      if (donation.unexectedOrders.length > 0) {
+        viewModel.currentOrder(donation.unexectedOrders.shift())
       } else {
         viewModel.currentOrder({})
       }
     },
     executeNext: function() {
       donation = viewModel.currentDonation()
-      if (donation.orders.length > 0) {
-        viewModel.currentOrder(donation.orders.shift())
+      if (donation.unexectedOrders.length > 0) {
+        viewModel.currentOrder(donation.unexectedOrders.shift())
       } else {
         viewModel.select(viewModel.donationWithOrders())
       }
     },
     donationWithOrders: function() {
       return viewModel.donations().filter(function(donation) {
-        return donation.orders.length > 0
+        return donation.unexectedOrders.length > 0
       })[0] || Donation({})
     },
     update: function() {
