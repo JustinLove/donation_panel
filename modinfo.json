@@ -1,27 +1,23 @@
 {
   "author": "wondible",
   "build": "69721",
-  "category": ["in-game", "ui"],
+  "category": ["sandbox", "ui"],
   "context": "client",
-  "date": "2014/07/30",
+  "date": "2014/08/01",
   "description": "Pull in the donation feed for the ablegamers tournament",
-  "display_name": "AbleGamers",
+  "display_name": "GoFundMe Feed (AbleGamers)",
   "forum": null,
-  "identifier": "com.wondible.pa.ablegamers",
+  "identifier": "com.wondible.pa.gofundme_feed",
   "priority": 100,
   "scenes": {
     "global_mod_list": [
-      "coui://ui/mods/ablegamers/keybinding.js"
+      "coui://ui/mods/gofundme_feed/keybinding.js"
     ],
     "start": [
-      "coui://ui/mods/ablegamers/start.js"
+      "coui://ui/mods/gofundme_feed/start.js"
     ],
     "live_game": [
-      "coui://ui/mods/ablegamers/live_game.js"
-    ],
-    "live_game_sandbox": [
-      "coui://ui/mods/ablegamers/live_game_sandbox.css",
-      "coui://ui/mods/ablegamers/live_game_sandbox.js"
+      "coui://ui/mods/gofundme_feed/live_game.js"
     ]
   },
   "signature": "not yet implemented",
