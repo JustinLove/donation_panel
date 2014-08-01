@@ -68,3 +68,14 @@ tbody.selected {
   background:#1e7aa1;
 }
 
+.amount {
+  text-align: right;
+  color: #0f0;
+  font-weight: bold;
+}
+
+.donor {
+  text-align: right;
+  color: #888;
+}
+
