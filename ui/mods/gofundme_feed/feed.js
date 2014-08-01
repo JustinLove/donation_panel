@@ -9,7 +9,7 @@ define(['gofundme_feed/menu'], function(menu) {
       var amount = $(doner).find('.damt').text().match(/\d+(\.\d+)?/)[0]
       var comment = $(doner).find('.dcom').text().trim()
       var donor = $(doner).find('.dname').text().trim()
-      var codes = comment.match(/[abcdefABCDEF][123456]/g) || []
+      var codes = comment.match(menu.codes) || []
       codes = codes.map(function(s) {return s.toUpperCase()})
       var orders = codes.map(function(c) {return menu.menuMap[c]})
 
