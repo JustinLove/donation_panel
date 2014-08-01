@@ -1,4 +1,7 @@
-define(['gofundme_feed/feed'], function(feed) {
+define([
+  'gofundme_feed/feed',
+  'gofundme_feed/donation'
+], function(feed, Donation) {
   var viewModel = {
     visible: ko.observable(true),
     open: ko.observable(true),
@@ -6,14 +9,14 @@ define(['gofundme_feed/feed'], function(feed) {
       viewModel.open(!viewModel.open())
     },
     donations: ko.observable([]),
-    currentDonation: ko.observable({orders: []}),
+    currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable({}),
-    selected: function(donation) {
+    select: function(donation) {
       console.log(donation)
 
-      viewModel.currentDonation().selected = false
+      viewModel.currentDonation().selected(false)
       viewModel.currentDonation(donation)
-      donation.selected = true
+      donation.selected(true)
 
       if (donation.orders.length > 0) {
         viewModel.currentOrder(donation.orders.shift())
@@ -31,7 +34,7 @@ define(['gofundme_feed/feed'], function(feed) {
     },
     update: function() {
       feed.update().then(function(data) {
-        viewModel.donations(data)
+        viewModel.donations(data.map(Donation))
       })
     },
     ready: function() {
