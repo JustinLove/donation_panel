@@ -27,6 +27,11 @@
                 <td class="donor" data-bind="text: donor">Doner</td>
               </tr>
               <tr>
+                <td class="codes" colspan="3" data-bind="foreach: unexectedOrders">
+                  <span class="uncode" data-bind="text: code"></span>
+                </td>
+              </tr>
+              <tr>
                 <td class="comment" data-bind="text: comment" colspan="3">comment</td>
               </tr>
             </tbody>

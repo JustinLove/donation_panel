@@ -96,6 +96,12 @@ tbody.insufficient {
   font-weight: bold;
 }
 
+.uncode {
+  background:#1e7aa1;
+  color: black;
+  font-weight: bold;
+}
+
 .minimum {
   font-size: 20px;
   color: #ff0;
