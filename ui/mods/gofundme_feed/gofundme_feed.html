@@ -17,7 +17,8 @@
         </div>
         <div class="gofundme_feed_cont" data-bind="visible: open">
           <input type="button" class="btn_commit"  data-bind="click: executeNext" value="NEXT"/>
-          <span data-bind="text: currentCode"></span>
+          <span class="code" data-bind="text: currentCode"></span>
+          <span class="minimum" data-bind="text: currentMin"></span>
           <table data-bind="foreach: donations">
             <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected}">
               <tr>

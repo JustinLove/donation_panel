@@ -79,3 +79,17 @@ tbody.selected {
   color: #888;
 }
 
+.code {
+  font-size: 20px;
+  background:#1e7aa1;
+  color: black;
+  font-weight: bold;
+}
+
+.minimum {
+  font-size: 20px;
+  color: #0f0;
+  font-weight: bold;
+  padding-left: 1em;
+}
+

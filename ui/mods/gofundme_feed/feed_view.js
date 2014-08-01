@@ -51,6 +51,9 @@ define([
   viewModel.currentCode = ko.computed(function() {
     return viewModel.currentOrder().code
   })
+  viewModel.currentMin = ko.computed(function() {
+    return viewModel.currentOrder().donation
+  })
 
   return viewModel
 })
