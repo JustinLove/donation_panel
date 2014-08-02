@@ -6,7 +6,7 @@
 
 require(['gofundme_feed/feed', 'gofundme_feed/panel'], function(feed, panel) {
   setTimeout(function() {
-    feed.update().then(function(donors) {
+    feed.testUpdate().then(function(donors) {
       donors.forEach(function(item) {
         console.log(item)
       })

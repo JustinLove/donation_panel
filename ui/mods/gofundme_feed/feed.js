@@ -1,12 +1,4 @@
 define(['gofundme_feed/menu'], function(menu) {
-  //var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
-  var donations = "coui://ui/mods/gofundme_feed/test.html"
-
-  var testSequence = [
-    "coui://ui/mods/gofundme_feed/test.html",
-    "coui://ui/mods/gofundme_feed/test2.html",
-  ]
-
   var process = function(html) {
     var $doners = $(html).find(".doner")
     //console.log([html, $doners])
@@ -29,14 +21,31 @@ define(['gofundme_feed/menu'], function(menu) {
     }).get().reverse()
   }
 
+  //var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
+  var donations = "coui://ui/mods/gofundme_feed/test.html"
+
   var update = function(url) {
-    donations = testSequence.shift() || donations
+    return $.get(url || donations).then(process)
+  }
+
+  var testSequence = [
+    "coui://ui/mods/gofundme_feed/test.html",
+    "coui://ui/mods/gofundme_feed/test2.html",
+  ]
+
+  var testUpdate = function() {
+    if (testSequence.length > 1) {
+      url = testSequence.shift()
+    } else {
+      url = testSequence[0]
+    }
     return $.get(url || donations).then(process)
   }
 
   return {
     donations: donations,
     update: update,
+    testUpdate: testUpdate,
     process: process,
   }
 })

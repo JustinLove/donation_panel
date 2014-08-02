@@ -60,7 +60,7 @@ define([
       })[0] || Donation({})
     },
     update: function() {
-      feed.update().then(integrateDonations)
+      feed.testUpdate().then(integrateDonations)
     },
     reap: function() {
       viewModel.donations(viewModel.donations().filter(unfinished))
