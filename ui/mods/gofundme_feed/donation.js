@@ -10,7 +10,7 @@ define(function() {
       while (credit >= item.donation) {
         credit -= item.donation
         model.minimum += item.donation
-        model.unexectedOrders.push(item)
+        model.unexecutedOrders.push(item)
       }
     }
   }
@@ -21,7 +21,7 @@ define(function() {
     model.selected = ko.observable(false)
     model.finished = ko.observable(false)
     model.orders = model.orders || []
-    model.unexectedOrders = ko.observableArray(model.orders.concat())
+    model.unexecutedOrders = ko.observableArray(model.orders.concat())
     model.minimum = model.orders
       .map(function(o) {return o.donation})
       .reduce(function(a, b) {return a + b}, 0)
