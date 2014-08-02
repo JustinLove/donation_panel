@@ -1,10 +1,10 @@
 define(['gofundme_feed/menu'], function(menu) {
   //var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
-  var donations = "coui://test/test.html"
+  var donations = "coui://ui/mods/gofundme_feed/test.html"
 
   var testSequence = [
-    "coui://test/test.html",
-    "coui://test/test2.html",
+    "coui://ui/mods/gofundme_feed/test.html",
+    "coui://ui/mods/gofundme_feed/test2.html",
   ]
 
   var process = function(html) {
