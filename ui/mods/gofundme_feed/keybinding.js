@@ -1,10 +1,5 @@
-action_sets.hacks['paste ten units'] = function () {
-  if (model.pasteUnits) model.pasteUnits(10)
+action_sets.hacks['next donation order'] = function () {
+  console.log(api.panels)
+  api.panels.gofundme_feed && api.panels.gofundme_feed.message('execute_next')
 }
-default_keybinds.hacks['paste ten units'] = 'shift+ctrl+v'
-
-action_sets.hacks['paste queue'] = function () {
-  console.log(model)
-  if (model.pasteShift) model.pasteShift()
-}
-default_keybinds.hacks['paste queue'] = 'alt+v'
+default_keybinds.hacks['next donation order'] = 'alt+n'

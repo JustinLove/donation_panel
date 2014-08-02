@@ -14,6 +14,8 @@ require(['gofundme_feed/feed_view'], function(feed_view) {
 
   model = feed_view
 
+  handlers.execute_next = model.executeNext
+
   // inject per scene mods
   if (scene_mod_list['missile_command'])
       loadMods(scene_mod_list['live_game_missile_command']);
