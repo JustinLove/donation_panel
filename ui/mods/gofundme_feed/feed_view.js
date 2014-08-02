@@ -35,6 +35,7 @@ define([
       viewModel.currentDonation().selected(false)
       viewModel.currentDonation(donation)
       donation.selected(true)
+      api.Panel.message('devmode', 'improved_player_control_change', donation.matchingIndex)
 
       if (!viewModel.cheatAllowCreateUnit()) {
         donation.finished(true)
