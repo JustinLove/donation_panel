@@ -1,10 +1,17 @@
 define(function() {
+  var setting = function() {
+    return api.settings.isSet('ui', 'gofundme_feed', true) || 'Test'
+  }
   return {
     name: function() {
-      return 'Test'
+      return setting()
     },
     feed: function() {
-      return 'testUpdate'
+      if (setting() == 'AbleGamers') {
+        return 'update'
+      } else {
+        return 'testUpdate'
+      }
     }
   }
 })
