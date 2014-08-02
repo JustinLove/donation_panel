@@ -19,6 +19,11 @@ define([
     })
   }
 
+  var autoUpdate = function() {
+    viewModel.update()
+    setTimeout(autoUpdate, 10000)
+  }
+
   var viewModel = {
     visible: ko.observable(true),
     open: ko.observable(true),
@@ -78,7 +83,7 @@ define([
       console.log('ready')
       api.Panel.message(api.Panel.parentId, 'request_player_names',
         ['gofundme_feed', 'player_names'])
-      setTimeout(viewModel.update, 1000)
+      setTimeout(autoUpdate, 1000)
     },
   }
 
