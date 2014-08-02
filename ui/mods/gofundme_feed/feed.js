@@ -1,6 +1,11 @@
 define(['gofundme_feed/menu'], function(menu) {
   //var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
-  var donations = "coui://ui/mods/gofundme_feed/test.html"
+  var donations = "coui://test/test.html"
+
+  var testSequence = [
+    "coui://test/test.html",
+    "coui://test/test2.html",
+  ]
 
   var process = function(html) {
     var $doners = $(html).find(".doner")
@@ -24,6 +29,7 @@ define(['gofundme_feed/menu'], function(menu) {
   }
 
   var update = function(url) {
+    donations = testSequence.shift() || donations
     return $.get(url || donations).then(process)
   }
 
