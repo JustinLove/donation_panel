@@ -12,6 +12,7 @@ define([
     incoming.forEach(function(d) {
       if (!knownDonations[d.id]) {
         var dm = Donation(d)
+        dm.matchPlayers(viewModel.playerNames())
         knownDonations[d.id] = dm
         viewModel.donations.push(dm)
       }
@@ -26,6 +27,7 @@ define([
     },
     name: ko.observable(config.name()),
     cheatAllowCreateUnit: ko.observable(false).extend({session: 'cheat_allow_create_unit'}),
+    playerNames: ko.observableArray([]),
     donations: ko.observableArray([]),
     currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable(nullOrder),
@@ -74,6 +76,8 @@ define([
     },
     ready: function() {
       console.log('ready')
+      api.Panel.message(api.Panel.parentId, 'request_player_names',
+        ['gofundme_feed', 'player_names'])
       setTimeout(viewModel.update, 1000)
     },
   }
@@ -86,6 +90,11 @@ define([
   })
   viewModel.currentOrder.subscribe(function(order) {
     api.Panel.message(api.Panel.parentId, 'sandbox_menu_item', order)
+  })
+  viewModel.playerNames.subscribe(function(names) {
+    viewModel.donations().forEach(function(donation) {
+      donation.matchPlayers(names)
+    })
   })
 
   return viewModel

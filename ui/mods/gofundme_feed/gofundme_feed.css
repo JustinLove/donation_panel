@@ -111,6 +111,12 @@ tbody.finished {
   font-weight: bold;
 }
 
+.player {
+  background:#a2a;
+  color: black;
+  font-weight: bold;
+}
+
 .minimum {
   font-size: 20px;
   color: #ff0;

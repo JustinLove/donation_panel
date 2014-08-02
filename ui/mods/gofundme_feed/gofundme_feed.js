@@ -20,6 +20,8 @@ require(['gofundme_feed/feed_view'], function(feed_view) {
 
   handlers.cheat_allow_create_unit = model.cheatAllowCreateUnit
 
+  handlers.player_names = model.playerNames
+
   // inject per scene mods
   if (scene_mod_list['missile_command'])
       loadMods(scene_mod_list['live_game_missile_command']);

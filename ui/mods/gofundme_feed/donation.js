@@ -1,5 +1,15 @@
 define(function() {
   var prototype = {
+    matchPlayers: function(players) {
+      var words = this.comment.match(/\b\w{3,}\b/g) || []
+      var re = new RegExp(words.join('|'), 'i')
+      this.matchingPlayers(players.filter(function(player) {
+        return player.match(re)
+      }))
+      if (this.matchingPlayers().length == 1) {
+        this.matchingIndex = players.indexOf(this.matchingPlayers()[0])
+      }
+    }
   }
 
   var expandSimpleMultiples = function(model) {
@@ -28,6 +38,9 @@ define(function() {
     model.insufficient = ko.observable(model.minimum > model.amount)
 
     expandSimpleMultiples(model)
+
+    model.matchingPlayers = ko.observable()
+    model.matchingIndex = -1
 
     return model
   }
