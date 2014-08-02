@@ -23,6 +23,7 @@ define([
     toggle: function() {
       viewModel.open(!viewModel.open())
     },
+    cheatAllowCreateUnit: ko.observable(false).extend({session: 'cheat_allow_create_unit'}),
     donations: ko.observableArray([]),
     currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable(nullOrder),
