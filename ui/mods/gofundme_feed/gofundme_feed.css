@@ -76,6 +76,10 @@ tbody.insufficient {
   background: #800;
 }
 
+tbody.finished {
+  opacity: 0.5;
+}
+
 .amount {
   text-align: right;
   color: #0f0;

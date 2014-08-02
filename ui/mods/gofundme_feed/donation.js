@@ -19,6 +19,7 @@ define(function() {
     var model = Object.create(prototype)
     $.extend(model, donation)
     model.selected = ko.observable(false)
+    model.finished = ko.observable(false)
     model.orders = model.orders || []
     model.unexectedOrders = model.orders.concat()
     model.minimum = model.orders

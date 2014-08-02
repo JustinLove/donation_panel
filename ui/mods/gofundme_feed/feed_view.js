@@ -3,11 +3,12 @@ define([
   'gofundme_feed/donation'
 ], function(feed, Donation) {
   var nullOrder = {build: []}
+  var unfinished = function(donation) {return !donation.finished()}
 
   var knownDonations = {}
 
-  var integrateDonations = function(donations) {
-    donations.forEach(function(d) {
+  var integrateDonations = function(incoming) {
+    incoming.forEach(function(d) {
       if (!knownDonations[d.id]) {
         var dm = Donation(d)
         knownDonations[d.id] = dm
@@ -26,8 +27,6 @@ define([
     currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable(nullOrder),
     select: function(donation) {
-      console.log(donation)
-
       viewModel.currentDonation().selected(false)
       viewModel.currentDonation(donation)
       donation.selected(true)
@@ -35,6 +34,7 @@ define([
       if (donation.unexectedOrders.length > 0) {
         viewModel.currentOrder(donation.unexectedOrders.shift())
       } else {
+        donation.finished(true)
         viewModel.currentOrder(nullOrder)
       }
     },
@@ -43,6 +43,7 @@ define([
       if (donation.unexectedOrders.length > 0) {
         viewModel.currentOrder(donation.unexectedOrders.shift())
       } else {
+        donation.finished(true)
         viewModel.select(viewModel.donationWithOrders())
       }
     },
@@ -53,6 +54,13 @@ define([
     },
     update: function() {
       feed.update().then(integrateDonations)
+    },
+    reap: function() {
+      viewModel.donations(viewModel.donations().filter(unfinished))
+    },
+    manualUpdate: function() {
+      viewModel.reap()
+      viewModel.update()
     },
     ready: function() {
       console.log('ready')
