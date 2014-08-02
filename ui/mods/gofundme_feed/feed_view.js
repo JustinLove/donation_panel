@@ -4,13 +4,25 @@ define([
 ], function(feed, Donation) {
   var nullOrder = {build: []}
 
+  var knownDonations = {}
+
+  var integrateDonations = function(donations) {
+    donations.forEach(function(d) {
+      if (!knownDonations[d.id]) {
+        var dm = Donation(d)
+        knownDonations[d.id] = dm
+        viewModel.donations.push(dm)
+      }
+    })
+  }
+
   var viewModel = {
     visible: ko.observable(true),
     open: ko.observable(true),
     toggle: function() {
       viewModel.open(!viewModel.open())
     },
-    donations: ko.observable([]),
+    donations: ko.observableArray([]),
     currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable(nullOrder),
     select: function(donation) {
@@ -40,9 +52,7 @@ define([
       })[0] || Donation({})
     },
     update: function() {
-      feed.update().then(function(data) {
-        viewModel.donations(data.map(Donation))
-      })
+      feed.update().then(integrateDonations)
     },
     ready: function() {
       console.log('ready')

@@ -22,10 +22,11 @@ define(['gofundme_feed/menu'], function(menu) {
         amount: amount,
         comment: comment,
         donor: donor,
+        id: donor + amount.toString() + comment,
         codes: codes,
         orders: orders,
       }
-    }).get()
+    }).get().reverse()
   }
 
   var update = function(url) {
