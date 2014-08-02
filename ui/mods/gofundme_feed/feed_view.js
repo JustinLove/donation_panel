@@ -32,6 +32,12 @@ define([
       viewModel.currentDonation(donation)
       donation.selected(true)
 
+      console.log(viewModel.cheatAllowCreateUnit())
+      if (!viewModel.cheatAllowCreateUnit()) {
+        donation.finished(true)
+        return
+      }
+
       if (donation.unexecutedOrders().length > 0) {
         viewModel.currentOrder(donation.unexecutedOrders.shift())
       } else {
