@@ -8,6 +8,6 @@ require(['gofundme_feed/panel'], function(panel) {
   panel()
 
   model.cheatAllowCreateUnit.subscribe(function(value) {
-    api.panels.gofundme_feed && api.panels.gofundme_feed.message('cheat_allow_create_unit', value)
+    api.Panel.message('gofundme_feed', 'cheat_allow_create_unit', value)
   })
 })
