@@ -36,7 +36,6 @@ define([
       viewModel.currentDonation(donation)
       donation.selected(true)
 
-      console.log(viewModel.cheatAllowCreateUnit())
       if (!viewModel.cheatAllowCreateUnit()) {
         donation.finished(true)
         return
