@@ -84,6 +84,7 @@ tbody.finished {
   text-align: right;
   color: #0f0;
   font-weight: bold;
+  padding-right: 0.5em;
 }
 
 .min-total {

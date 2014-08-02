@@ -1,6 +1,7 @@
 define(['gofundme_feed/menu'], function(menu) {
   var process = function(html) {
-    var $doners = $(html).find(".doner")
+    // trim: leadig blank line will throw invalid
+    var $doners = $(html.trim()).find(".doner")
     //console.log([html, $doners])
     return $doners.map(function(i, doner) {
       var amount = parseInt($(doner).find('.damt').text().match(/\d+(\.\d+)?/)[0], 10)
@@ -21,8 +22,8 @@ define(['gofundme_feed/menu'], function(menu) {
     }).get().reverse()
   }
 
-  //var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
-  var donations = "coui://ui/mods/gofundme_feed/test.html"
+  var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
+  //var donations = "coui://ui/mods/gofundme_feed/raw.html"
 
   var update = function(url) {
     return $.get(url || donations).then(process)
