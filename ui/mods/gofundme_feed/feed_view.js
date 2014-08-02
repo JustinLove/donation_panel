@@ -2,6 +2,8 @@ define([
   'gofundme_feed/feed',
   'gofundme_feed/donation'
 ], function(feed, Donation) {
+  var nullOrder = {build: []}
+
   var viewModel = {
     visible: ko.observable(true),
     open: ko.observable(true),
@@ -10,7 +12,7 @@ define([
     },
     donations: ko.observable([]),
     currentDonation: ko.observable(Donation({})),
-    currentOrder: ko.observable({}),
+    currentOrder: ko.observable(nullOrder),
     select: function(donation) {
       console.log(donation)
 
@@ -21,7 +23,7 @@ define([
       if (donation.unexectedOrders.length > 0) {
         viewModel.currentOrder(donation.unexectedOrders.shift())
       } else {
-        viewModel.currentOrder({})
+        viewModel.currentOrder(nullOrder)
       }
     },
     executeNext: function() {
@@ -53,6 +55,9 @@ define([
   })
   viewModel.currentMin = ko.computed(function() {
     return viewModel.currentOrder().donation
+  })
+  viewModel.currentOrder.subscribe(function(order) {
+    api.Panel.message(api.Panel.parentId, 'sandbox_menu_item', order)
   })
 
   return viewModel

@@ -4,7 +4,7 @@ define(function() {
       visibility: 'visible',
       position: 'absolute',
       bottom: 0,
-      left: 0,
+      right: 0,
     }).attr({
       name: "gofundme_feed",
       src: "coui://ui/mods/gofundme_feed/gofundme_feed.html",
