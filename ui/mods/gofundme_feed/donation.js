@@ -1,7 +1,9 @@
 define(function() {
   var prototype = {
     matchPlayers: function(players) {
-      var words = this.comment.match(/\b\w{3,}\b/g) || []
+      var words = this.comment.match(/\b\w{3,}\b/g)
+      if (!words) return
+
       var re = new RegExp(words.join('|'), 'i')
       this.matchingPlayers(players.filter(function(player) {
         return player.match(re)
