@@ -1,7 +1,8 @@
 define([
+  'gofundme_feed/config',
   'gofundme_feed/feed',
   'gofundme_feed/donation'
-], function(feed, Donation) {
+], function(config, feed, Donation) {
   var nullOrder = {build: []}
   var unfinished = function(donation) {return !donation.finished()}
 
@@ -23,6 +24,7 @@ define([
     toggle: function() {
       viewModel.open(!viewModel.open())
     },
+    name: ko.observable(config.name()),
     cheatAllowCreateUnit: ko.observable(false).extend({session: 'cheat_allow_create_unit'}),
     donations: ko.observableArray([]),
     currentDonation: ko.observable(Donation({})),
@@ -60,7 +62,8 @@ define([
       })[0] || Donation({})
     },
     update: function() {
-      feed.testUpdate().then(integrateDonations)
+      viewModel.name(config.name())
+      feed[config.feed()]().then(integrateDonations)
     },
     reap: function() {
       viewModel.donations(viewModel.donations().filter(unfinished))
