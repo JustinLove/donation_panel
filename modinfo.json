@@ -4,7 +4,7 @@
   "category": ["sandbox", "ui"],
   "context": "client",
   "date": "2014/08/03",
-  "description": "Pull in the donation feed for the ablegamers tournament",
+  "description": "Pull in the donation feed for the ablegamers tournament, and display an in-game panel; really only useful during puppetmaster chairity tournaments.",
   "display_name": "Donation Panel (AbleGamers)",
   "forum": null,
   "identifier": "com.wondible.pa.donation_panel",
