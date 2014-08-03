@@ -1,7 +1,7 @@
 define([
-  'gofundme_feed/config',
-  'gofundme_feed/feed',
-  'gofundme_feed/donation'
+  'donation_panel/config',
+  'donation_panel/feed',
+  'donation_panel/donation'
 ], function(config, feed, Donation) {
   var nullOrder = {build: []}
   var unfinished = function(donation) {return !donation.finished()}
@@ -82,7 +82,7 @@ define([
     ready: function() {
       console.log('ready')
       api.Panel.message(api.Panel.parentId, 'request_player_names',
-        ['gofundme_feed', 'player_names'])
+        ['donation_panel', 'player_names'])
       setTimeout(autoUpdate, 1000)
     },
   }

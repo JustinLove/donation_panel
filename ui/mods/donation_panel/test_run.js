@@ -1,10 +1,10 @@
 (function() {
   var paths = require.s.contexts._.config.paths
-  paths.gofundme_feed = 'coui://ui/mods/gofundme_feed'
+  paths.donation_panel = 'coui://ui/mods/donation_panel'
   paths.sandbox_unit_menu = 'coui://ui/mods/sandbox_unit_menu'
 })()
 
-require(['gofundme_feed/feed', 'gofundme_feed/panel'], function(feed, panel) {
+require(['donation_panel/feed', 'donation_panel/panel'], function(feed, panel) {
   setTimeout(function() {
     feed.testUpdate().then(function(donors) {
       donors.forEach(function(item) {

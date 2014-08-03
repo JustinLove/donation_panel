@@ -1,7 +1,7 @@
 (function() {
   _.extend(api.settings.definitions.ui.settings, {
-    gofundme_feed: {
-      title: 'GoFundMe Feed',
+    donation_panel_feed: {
+      title: 'Donation Feed',
       type: 'select',
       options: ['AbleGamers', 'Test'],
       default: 'Test'

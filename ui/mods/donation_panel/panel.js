@@ -1,13 +1,13 @@
 define(function() {
   return function() {
-    var $panel = $('<panel id="gofundme_feed"></panel>').css({
+    var $panel = $('<panel id="donation_panel"></panel>').css({
       visibility: 'visible',
       position: 'absolute',
       bottom: 0,
       right: 0,
     }).attr({
-      name: "gofundme_feed",
-      src: "coui://ui/mods/gofundme_feed/gofundme_feed.html",
+      name: "donation_panel",
+      src: "coui://ui/mods/donation_panel/donation_panel.html",
       'no-keyboard': true,
       'yield-focus': true,
       fit: "dock-bottom-right",

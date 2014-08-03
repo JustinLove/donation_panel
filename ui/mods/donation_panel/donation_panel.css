@@ -17,14 +17,14 @@ body-dock {
   min-height: 75px;
 }
 
-.gofundme_feed {
+.donation_panel {
   margin-top: 100px;
   margin-bottom: 50px;
   font-size: 12px;
   font-family: 'Armata Regular';
 }
 
-.gofundme_feed_control {
+.donation_panel_control {
   border-image:url(coui://ui/main/shared/img/panel/img_menu_panel.png) 14 22 22 22;
   border-width:14px 22px 22px 22px;
   box-shadow: inset 1000px 1000px 1000px 1000px #000;
@@ -33,7 +33,7 @@ body-dock {
   min-height: 5em;
 }
 
-.gofundme_feed_cont {
+.donation_panel_cont {
   border-image:url(coui://ui/main/shared/img/panel/img_menu_panel.png) 14 22 22 22;
   border-width:14px 22px 22px 22px;
   box-shadow: inset 1000px 1000px 1000px 1000px #000;
@@ -41,18 +41,18 @@ body-dock {
   position: relative;
 }
 
-.gofundme_feed h3 {
+.donation_panel h3 {
   margin: 0;
   margin-bottom: -8px;
 }
 
-.gofundme_feed .control_chevron_auto {
+.donation_panel .control_chevron_auto {
   position: absolute;
   right: 0;
   top: 4px;
 }
 
-.gofundme_feed table {
+.donation_panel table {
   margin-bottom: -16px;
 
   max-height: 80vh;

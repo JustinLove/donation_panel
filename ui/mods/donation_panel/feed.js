@@ -1,4 +1,4 @@
-define(['gofundme_feed/menu'], function(menu) {
+define(['donation_panel/menu'], function(menu) {
   var process = function(html) {
     // trim: leadig blank line will throw invalid
     var $doners = $(html.trim()).find(".doner")
@@ -23,15 +23,15 @@ define(['gofundme_feed/menu'], function(menu) {
   }
 
   var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
-  //var donations = "coui://ui/mods/gofundme_feed/raw.html"
+  //var donations = "coui://ui/mods/donation_panel/raw.html"
 
   var update = function(url) {
     return $.get(url || donations).then(process)
   }
 
   var testSequence = [
-    "coui://ui/mods/gofundme_feed/test.html",
-    "coui://ui/mods/gofundme_feed/test2.html",
+    "coui://ui/mods/donation_panel/test.html",
+    "coui://ui/mods/donation_panel/test2.html",
   ]
 
   var testUpdate = function() {
