@@ -1,12 +1,16 @@
 define(['donation_panel/menu'], function(menu) {
-  var process = function(html) {
-    // trim: leadig blank line will throw invalid
-    var $doners = $(html.trim()).find(".doner")
-    //console.log([html, $doners])
-    return $doners.map(function(i, doner) {
-      var amount = parseInt($(doner).find('.damt').text().match(/\d+(\.\d+)?/)[0], 10)
-      var comment = $(doner).find('.dcom').text().trim()
-      var donor = $(doner).find('.dname').text().trim()
+  var process = function(json) {
+    if (!json.activities.entries) return []
+    return json.activities.entries.filter(function(entry) {
+      return !!entry.donation
+    }).map(function(entry) {
+      var donation = entry.donation
+
+      var id = donation.activityId
+      var amount = parseInt(donation.amount, 10)
+      var comment = donation.message || ''
+      var donor = donation.owner.name
+
       var codes = comment.match(menu.codes) || []
       codes = codes.map(function(s) {return s.toUpperCase()})
       var orders = codes.map(function(c) {return menu.menuMap[c]})
@@ -15,23 +19,23 @@ define(['donation_panel/menu'], function(menu) {
         amount: amount,
         comment: comment,
         donor: donor,
-        id: donor + amount.toString() + comment,
+        id: id,
         codes: codes,
         orders: orders,
       }
-    }).get().reverse()
+    }).reverse()
   }
 
-  var donations = "http://www.gofundme.com/mvc.php?route=donate/pagingdonationsb&url=planetaryablegamers&idx=0&type=recent"
-  //var donations = "coui://ui/mods/donation_panel/raw.html"
+  var donations = "https://fundrazr.com/api/campaigns/a11wc4/highlights?v=1&max-results=25&order=newest-first&_=1439251828096"
+  //var donations = "https://fundrazr.com/api/campaigns/4xZAc/highlights?v=1&max-results=25&order=newest-first&_=1439251828096"
 
   var update = function(url) {
-    return $.get(url || donations).then(process)
+    return $.getJSON(url || donations).then(process)
   }
 
   var testSequence = [
-    "coui://ui/mods/donation_panel/test.html",
-    "coui://ui/mods/donation_panel/test2.html",
+    "coui://ui/mods/donation_panel/test.json",
+    "coui://ui/mods/donation_panel/test2.json",
   ]
 
   var testUpdate = function() {
@@ -40,6 +44,7 @@ define(['donation_panel/menu'], function(menu) {
     } else {
       url = testSequence[0]
     }
+    console.log(url)
     return $.get(url || donations).then(process)
   }
 

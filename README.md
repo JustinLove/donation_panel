@@ -1,6 +1,6 @@
 # Donation Panel
 
-Queries the GoFundmePage (currently only [AbleGamers event](http://www.gofundme.com/PlanetaryAblegamers)) recent donations page fragment and displays it in-game.  Items can be marked as finished, and will then be culled when the feed is manually refreshed.  Automatic refresh is currently 10 seconds.
+Queries the GoFundmePage (currently only [AbleGamers event](https://fundrazr.com/campaigns/a11wc4/ab/753y8a?)) recent donations page fragment and displays it in-game.  Items can be marked as finished, and will then be culled when the feed is manually refreshed.  Automatic refresh is currently 10 seconds.
 
 ## Keybinds (defaults)
 
