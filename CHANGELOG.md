@@ -5,3 +5,4 @@
 Update for current environment
 
 - Rebuild setting config
+- Update panel html header
