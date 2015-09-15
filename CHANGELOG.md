@@ -6,6 +6,7 @@
 - Option bar toggle
 - Move fixed elements to bottom
 - Cancel button on each item
+- If a unit already comes in batches, multiply it by increasig the number rather than the instances
 
 ## 1.0.0
 

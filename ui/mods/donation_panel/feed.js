@@ -13,7 +13,7 @@ define(['donation_panel/menu'], function(menu) {
 
       var codes = comment.match(menu.codes) || []
       codes = codes.map(function(s) {return s.toUpperCase()})
-      var orders = codes.map(function(c) {return menu.menuMap[c]})
+      var orders = codes.map(function(c) {return JSON.parse(JSON.stringify(menu.menuMap[c]))})
 
       return {
         amount: amount,

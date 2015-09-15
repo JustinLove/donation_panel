@@ -19,10 +19,19 @@ define(function() {
       var credit = model.amount
       var item = model.orders[0]
       credit -= item.donation
-      while (credit >= item.donation) {
-        credit -= item.donation
-        model.minimum += item.donation
-        model.unexecutedOrders.push(item)
+      if (item.build.length == 1 && item.build[0][0] > 1) {
+        var step = item.build[0][0]
+        while (credit >= item.donation) {
+          credit -= item.donation
+          model.minimum += item.donation
+          item.build[0][0] += step
+        }
+      } else {
+        while (credit >= item.donation) {
+          credit -= item.donation
+          model.minimum += item.donation
+          model.unexecutedOrders.push(item)
+        }
       }
     }
   }
