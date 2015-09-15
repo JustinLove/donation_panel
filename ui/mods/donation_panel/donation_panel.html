@@ -11,16 +11,7 @@
   <div class="body_panel">
     <body-dock>
       <div class="donation_panel" data-bind="visible: visible">
-        <div class="donation_panel_control">
-          <div class="control_chevron_auto"></div>
-          <h3 data-bind="text: name">Donation Panel</h3>
-        </div>
         <div class="donation_panel_cont">
-          <div data-bind="visible: cheatAllowCreateUnit">
-            <input type="button" class="btn_commit"  data-bind="click: executeNext" value="NEXT"/>
-            <span class="code" data-bind="text: currentCode"></span>
-            <span class="minimum" data-bind="text: currentMin"></span>
-          </div>
           <table data-bind="foreach: donations">
             <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected, finished: finished, insufficient: insufficient}">
               <tr>
@@ -43,6 +34,14 @@
               </tr>
             </tbody>
           </table>
+          <div data-bind="visible: cheatAllowCreateUnit">
+            <input type="button" class="btn_commit"  data-bind="click: executeNext" value="NEXT"/>
+            <span class="code" data-bind="text: currentCode"></span>
+            <span class="minimum" data-bind="text: currentMin"></span>
+          </div>
+        </div>
+        <div class="donation_panel_control">
+          <h3 data-bind="text: name">Donation Panel</h3>
         </div>
       </div>
     </body-dock>

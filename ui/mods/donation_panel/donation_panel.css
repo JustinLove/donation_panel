@@ -37,7 +37,7 @@ body-dock {
   border-image:url(coui://ui/main/shared/img/panel/img_menu_panel.png) 14 22 22 22;
   border-width:14px 22px 22px 22px;
   box-shadow: inset 1000px 1000px 1000px 1000px #000;
-  margin:-13px 8px 0px 8px;
+  margin:-13px 8px -30px 8px;
   position: relative;
 }
 
@@ -46,15 +46,7 @@ body-dock {
   margin-bottom: -8px;
 }
 
-.donation_panel .control_chevron_auto {
-  position: absolute;
-  right: 0;
-  top: 4px;
-}
-
 .donation_panel table {
-  margin-bottom: -16px;
-
   max-height: 80vh;
   overflow-y: auto;
   overflow-x: visible;
