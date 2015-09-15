@@ -121,6 +121,12 @@ tbody.finished {
   font-weight: bold;
 }
 
+.planet {
+  background:#2a2;
+  color: black;
+  font-weight: bold;
+}
+
 .minimum {
   font-size: 20px;
   color: #ff0;

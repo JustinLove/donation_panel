@@ -9,7 +9,19 @@ define(function() {
         return player.match(re)
       }))
       if (this.matchingPlayers().length == 1) {
-        this.matchingIndex = players.indexOf(this.matchingPlayers()[0])
+        this.matchingPlayerIndex = players.indexOf(this.matchingPlayers()[0])
+      }
+    },
+    matchPlanets: function(planets) {
+      var words = this.comment.match(/\b\w{3,}\b/g)
+      if (!words) return
+
+      var re = new RegExp(words.join('|'), 'i')
+      this.matchingPlanets(planets.filter(function(planet) {
+        return planet && planet.match(re)
+      }))
+      if (this.matchingPlanets().length == 1) {
+        this.matchingPlanetIndex = planets.indexOf(this.matchingPlanets()[0])
       }
     }
   }
@@ -51,7 +63,9 @@ define(function() {
     expandSimpleMultiples(model)
 
     model.matchingPlayers = ko.observable()
-    model.matchingIndex = -1
+    model.matchingPlayerIndex = -1
+    model.matchingPlanets = ko.observable()
+    model.matchingPlanetIndex = -1
 
     return model
   }

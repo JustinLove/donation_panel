@@ -21,6 +21,7 @@ require(['donation_panel/feed_view'], function(feed_view) {
   handlers.cheat_allow_create_unit = model.cheatAllowCreateUnit
 
   handlers.player_names = model.playerNames
+  handlers.planet_names = model.planetNames
 
   // inject per scene mods
   if (scene_mod_list['missile_command'])

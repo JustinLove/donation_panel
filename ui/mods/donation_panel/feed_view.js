@@ -13,6 +13,7 @@ define([
       if (!knownDonations[d.id]) {
         var dm = Donation(d)
         dm.matchPlayers(viewModel.playerNames())
+        dm.matchPlanets(viewModel.planetNames())
         knownDonations[d.id] = dm
         viewModel.donations.push(dm)
       }
@@ -29,6 +30,7 @@ define([
     name: ko.observable(config.name()),
     cheatAllowCreateUnit: ko.observable(false).extend({session: 'cheat_allow_create_unit'}),
     playerNames: ko.observableArray([]),
+    planetNames: ko.observableArray([]),
     donations: ko.observableArray([]),
     currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable(nullOrder),
@@ -36,7 +38,11 @@ define([
       viewModel.currentDonation().selected(false)
       viewModel.currentDonation(donation)
       donation.selected(true)
-      api.Panel.message('devmode', 'improved_player_control_change', donation.matchingIndex)
+      api.Panel.message('devmode', 'improved_player_control_change', donation.matchingPlayerIndex)
+      if (donation.matchingPlanetIndex != -1) {
+        api.Panel.message(api.Panel.parentId, 'planets.click', donation.matchingPlanetIndex)
+        api.audio.playSound('/SE/UI/UI_planet_switch_select');
+      }
 
       if (!viewModel.cheatAllowCreateUnit()) {
         donation.finished(true)
@@ -82,6 +88,8 @@ define([
       console.log('ready')
       api.Panel.message(api.Panel.parentId, 'request_player_names',
         ['donation_panel', 'player_names'])
+      api.Panel.message(api.Panel.parentId, 'request_planet_names',
+        ['donation_panel', 'planet_names'])
       setTimeout(autoUpdate, 1000)
     },
   }
@@ -98,6 +106,11 @@ define([
   viewModel.playerNames.subscribe(function(names) {
     viewModel.donations().forEach(function(donation) {
       donation.matchPlayers(names)
+    })
+  })
+  viewModel.planetNames.subscribe(function(names) {
+    viewModel.donations().forEach(function(donation) {
+      donation.matchPlanets(names)
     })
   })
 
