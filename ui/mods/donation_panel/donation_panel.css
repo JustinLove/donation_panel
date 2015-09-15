@@ -90,6 +90,18 @@ tbody.finished {
   color: #888;
 }
 
+.cancel {
+  text-align: right;
+  color: #F00;
+  padding-left: 1em;
+  font-weight: bold;
+}
+
+.cancel:hover {
+  color: black;
+  background-color: red;
+}
+
 .code {
   font-size: 20px;
   background:#1e7aa1;

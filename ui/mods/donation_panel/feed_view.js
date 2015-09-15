@@ -50,6 +50,9 @@ define([
         viewModel.currentOrder(nullOrder)
       }
     },
+    cancel: function(donation) {
+      donation.finished(true)
+    },
     executeNext: function() {
       donation = viewModel.currentDonation()
       if (donation.unexecutedOrders().length > 0) {

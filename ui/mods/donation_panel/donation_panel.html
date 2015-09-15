@@ -18,19 +18,20 @@
                 <td class="amount" data-bind="text: amount">$$</td>
                 <td class="min-total" data-bind="text: minimum">$$</td>
                 <td class="donor" data-bind="text: donor">Doner</td>
+                <td class="cancel" data-bind="click: function(donation, e) {$parent.cancel(donation); e.stopPropagation()}">X</td>
               </tr>
               <tr>
-                <td colspan="3">
+                <td colspan="4">
                   <span data-bind="foreach: matchingPlayers">
                     <span class="player" data-bind="text: $data"></span>
                   </span>
-                  <span colspan="3" data-bind="foreach: unexecutedOrders">
+                  <span colspan="4" data-bind="foreach: unexecutedOrders">
                     <span class="uncode" data-bind="text: code"></span>
                   </span>
                 </td>
               </tr>
               <tr>
-                <td class="comment" data-bind="text: comment" colspan="3">comment</td>
+                <td class="comment" data-bind="text: comment" colspan="4">comment</td>
               </tr>
             </tbody>
           </table>

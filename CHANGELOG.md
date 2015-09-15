@@ -5,6 +5,7 @@
 - Remove requirejs text plugin
 - Option bar toggle
 - Move fixed elements to bottom
+- Cancel button on each item
 
 ## 1.0.0
 
