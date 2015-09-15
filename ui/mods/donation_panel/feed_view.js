@@ -26,10 +26,6 @@ define([
 
   var viewModel = {
     visible: ko.observable(true),
-    open: ko.observable(true),
-    toggle: function() {
-      viewModel.open(!viewModel.open())
-    },
     name: ko.observable(config.name()),
     cheatAllowCreateUnit: ko.observable(false).extend({session: 'cheat_allow_create_unit'}),
     playerNames: ko.observableArray([]),
