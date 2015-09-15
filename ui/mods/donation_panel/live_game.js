@@ -5,11 +5,12 @@
 
   handlers.request_player_names = function(payload) {
     api.Panel.message(payload[0], payload[1], model.playerData().names)
+    api.panels.options_bar && api.panels.options_bar.message('donation_panel_loading', false)
   }
 })()
 
 require(['donation_panel/panel'], function(panel) {
-  panel()
+  panel.show()
 
   api.Panel.message('donation_panel', 'cheat_allow_create_unit', model.cheatAllowCreateUnit())
   model.cheatAllowCreateUnit.subscribe(function(value) {
@@ -19,5 +20,4 @@ require(['donation_panel/panel'], function(panel) {
   model.playerData.subscribe(function(value) {
     api.Panel.message('donation_panel', 'player_names', value.names)
   })
-
 })

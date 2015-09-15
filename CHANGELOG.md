@@ -1,8 +1,9 @@
 # Donation Panel Changelog
 
-## 1.0.1
+## 1.1.0
 
 - Remove requirejs text plugin
+- Option bar toggle
 
 ## 1.0.0
 
