@@ -24,8 +24,8 @@ require(['donation_panel/feed_view'], function(feed_view) {
   handlers.planet_names = model.planetNames
 
   // inject per scene mods
-  if (scene_mod_list['missile_command'])
-      loadMods(scene_mod_list['live_game_missile_command']);
+  if (scene_mod_list['donation_panel'])
+      loadMods(scene_mod_list['donation_panel']);
 
   // setup send/recv messages and signals
   app.registerWithCoherent(model, handlers);
