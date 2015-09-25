@@ -2,6 +2,7 @@
 
 ## 1.2.0
 
+- Update fundrazr url
 - Redo feed interface; add historical gofundme data
 - Add hooks for tiltify
 
