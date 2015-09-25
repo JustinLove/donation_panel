@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.2.0
+
+- Redo feed interface; add historical gofundme data
+
 ## 1.1.0
 
 - Remove requirejs text plugin

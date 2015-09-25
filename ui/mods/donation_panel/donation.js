@@ -1,4 +1,4 @@
-define(function() {
+define(['donation_panel/menu'], function(menu) {
   var prototype = {
     matchPlayers: function(players) {
       var words = this.comment.match(/\b\w{3,}\b/g)
@@ -51,9 +51,17 @@ define(function() {
   var constructor = function(donation) {
     var model = Object.create(prototype)
     $.extend(model, donation)
+    model.amount = model.amount || 0
+    model.donor_name = model.donor_name || 'anonymous'
+    model.donor_image = model.donor_image || ''
+    model.comment = model.comment || ''
     model.selected = ko.observable(false)
     model.finished = ko.observable(false)
-    model.orders = model.orders || []
+
+    var codes = model.comment.match(menu.codes) || []
+    model.codes = codes.map(function(s) {return s.toUpperCase()})
+    model.orders = model.codes.map(function(c) {return JSON.parse(JSON.stringify(menu.menuMap[c]))}) || []
+
     model.unexecutedOrders = ko.observableArray(model.orders.concat())
     model.minimum = model.orders
       .map(function(o) {return o.donation})

@@ -3,8 +3,8 @@
     donation_panel_feed: {
       title: 'Donation Feed',
       type: 'select',
-      options: ['AbleGamers', 'Test'],
-      default: 'Test'
+      options: ['fundrazr_test', 'fundrazr_live', 'gofundme_test', 'gofundme_live'],
+      default: 'fundrazr_test'
     }
   }
 

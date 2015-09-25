@@ -75,7 +75,7 @@ define([
     },
     update: function() {
       viewModel.name(config.name())
-      feed[config.feed()]().then(integrateDonations)
+      feed[config.feed()].update().then(integrateDonations)
     },
     reap: function() {
       viewModel.donations(viewModel.donations().filter(unfinished))
