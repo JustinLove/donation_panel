@@ -6,12 +6,18 @@
       options: [
         'tiltify_local',
         'tiltify_api_test',
+        'tiltify_live',
         'fundrazr_test',
         'fundrazr_live',
         'gofundme_test',
         'gofundme_live'
       ],
       default: 'fundrazr_test'
+    },
+    donation_panel_api_key: {
+      title: 'Feed Api Key',
+      type: 'text',
+      default: ''
     }
   }
 
@@ -27,6 +33,17 @@
   $group.append($template[0].outerHTML.replace('setting-template', 'donation-panel-setting-template').replace('hide', 'show'))
 
   Object.keys(donation_panel_settings).forEach(function(setting) {
-    $group.append('<div class="option" data-bind="template: { name: \'donation-panel-setting-template\', data: $root.settingsItemMap()[\'ui.' + setting + '\'] }"></div>')
+    if (setting == 'donation_panel_api_key') {
+      var textHtml = 
+        '<div class="option" data-bind="with: $root.settingsItemMap()[\'ui.' + setting + '\']">' +
+          '<label data-bind="text: title" >' +
+            'title' +
+          '</label>' +
+          '<input type="text" class="form-control" value="" data-bind="value: value" />' +
+        '</div>'
+      $group.append(textHtml)
+    } else {
+      $group.append('<div class="option" data-bind="template: { name: \'donation-panel-setting-template\', data: $root.settingsItemMap()[\'ui.' + setting + '\'] }"></div>')
+    }
   })
 })()

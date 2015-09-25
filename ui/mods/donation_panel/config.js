@@ -1,13 +1,13 @@
 define(function() {
-  var setting = function() {
-    return api.settings.isSet('ui', 'donation_panel_feed', true) || 'Test'
+  var feed = function() {
+    return api.settings.isSet('ui', 'donation_panel_feed', true) || 'fundrazr_test'
+  }
+  var api_key = function() {
+    return api.settings.isSet('ui', 'donation_panel_api_key', true) || ''
   }
   return {
-    name: function() {
-      return setting()
-    },
-    feed: function() {
-      return setting()
-    }
+    name: feed,
+    feed: feed,
+    api_key: api_key,
   }
 })

@@ -3,6 +3,7 @@
 ## 1.2.0
 
 - Redo feed interface; add historical gofundme data
+- Add hooks for tiltify
 
 ## 1.1.0
 
