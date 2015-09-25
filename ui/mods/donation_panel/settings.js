@@ -3,7 +3,14 @@
     donation_panel_feed: {
       title: 'Donation Feed',
       type: 'select',
-      options: ['fundrazr_test', 'fundrazr_live', 'gofundme_test', 'gofundme_live'],
+      options: [
+        'tiltify_local',
+        'tiltify_api_test',
+        'fundrazr_test',
+        'fundrazr_live',
+        'gofundme_test',
+        'gofundme_live'
+      ],
       default: 'fundrazr_test'
     }
   }
