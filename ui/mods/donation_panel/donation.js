@@ -69,6 +69,8 @@ define(['donation_panel/menu'], function(menu) {
 
     expandSimpleMultiples(model)
 
+    model.unaccounted = ko.observable(model.minimum < model.amount)
+
     model.matchingPlayers = ko.observable()
     model.matchingPlayerIndex = -1
     model.matchingPlanets = ko.observable()

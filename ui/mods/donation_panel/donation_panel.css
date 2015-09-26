@@ -68,6 +68,10 @@ tbody.insufficient {
   background: #800;
 }
 
+tbody.unaccounted {
+  background: #040;
+}
+
 tbody.finished {
   opacity: 0.5;
 }

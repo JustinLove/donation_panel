@@ -13,7 +13,7 @@
       <div class="donation_panel" data-bind="visible: visible">
         <div class="donation_panel_cont">
           <table data-bind="foreach: donations">
-            <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected, finished: finished, insufficient: insufficient}">
+            <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected, finished: finished, insufficient: insufficient, unaccounted: unaccounted}">
               <tr>
                 <td class="amount" data-bind="text: amount">$$</td>
                 <td class="min-total" data-bind="text: minimum">$$</td>
