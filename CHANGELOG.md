@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.2.1
+
+- Do not pull codes out of player names (Thanks to Hanfyren for the early donation to Alpha2546 (aka A2))
+
 ## 1.2.0
 
 - Update fundrazr url

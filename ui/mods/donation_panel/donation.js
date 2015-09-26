@@ -58,9 +58,8 @@ define(['donation_panel/menu'], function(menu) {
     model.selected = ko.observable(false)
     model.finished = ko.observable(false)
 
-    var codes = model.comment.match(menu.codes) || []
-    model.codes = codes.map(function(s) {return s.toUpperCase()})
-    model.orders = model.codes.map(function(c) {return JSON.parse(JSON.stringify(menu.menuMap[c]))}) || []
+    model.codes = menu.match(model.comment)
+    model.orders = menu.orders(model.codes)
 
     model.unexecutedOrders = ko.observableArray(model.orders.concat())
     model.minimum = model.orders
