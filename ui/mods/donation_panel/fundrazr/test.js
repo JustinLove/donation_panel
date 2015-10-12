@@ -1,7 +1,11 @@
 define(['donation_panel/fundrazr/parse'], function(parse) {
   var testSequence = [
-    "coui://ui/mods/donation_panel/fundrazr/test.json",
-    "coui://ui/mods/donation_panel/fundrazr/test2.json",
+    //"coui://ui/mods/donation_panel/fundrazr/test.json",
+    //"coui://ui/mods/donation_panel/fundrazr/test2.json",
+    "coui://ui/mods/donation_panel/fundrazr/fr00.json",
+    "coui://ui/mods/donation_panel/fundrazr/fr01.json",
+    "coui://ui/mods/donation_panel/fundrazr/fr02.json",
+    "coui://ui/mods/donation_panel/fundrazr/fr03.json",
   ]
 
   var withoutImages = function(json) {
