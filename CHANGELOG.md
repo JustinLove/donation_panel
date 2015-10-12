@@ -1,5 +1,10 @@
 # Donation Panel Changelog
 
+## 1.4.0
+
+- test feed from 2015 event
+- use a more approprite fundrazr url
+
 ## 1.3.0
 
 - Add highlight for donations that did not account for all money
