@@ -6,6 +6,8 @@ define([
   'donation_panel/fundrazr/live',
   'donation_panel/gofundme/test',
   'donation_panel/gofundme/live',
+  'donation_panel/donordrive/test',
+  'donation_panel/donordrive/live',
 ], function(
   tiltify_local,
   tiltify_api_test,
@@ -13,7 +15,9 @@ define([
   fundrazr_test,
   fundrazr_live,
   gofundme_test,
-  gofundme_live
+  gofundme_live,
+  donordrive_test,
+  donordrive_live
 ) {
   return {
     tiltify_local: tiltify_local,
@@ -23,5 +27,7 @@ define([
     fundrazr_live: fundrazr_live,
     gofundme_test: gofundme_test,
     gofundme_live: gofundme_live,
+    donordrive_test: donordrive_test,
+    donordrive_live: donordrive_live,
   }
 })

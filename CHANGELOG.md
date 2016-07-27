@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.5.0
+
+- Add donordrive support
+
 ## 1.4.0
 
 - test feed from 2015 event
