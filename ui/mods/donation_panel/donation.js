@@ -55,6 +55,7 @@ define(['donation_panel/menu'], function(menu) {
     model.donor_name = model.donor_name || 'anonymous'
     model.donor_image = model.donor_image || ''
     model.comment = model.comment || ''
+    model.comment = (model.comment || '').replace(/^\s+|\s+$/gm, '')
     model.selected = ko.observable(false)
     model.finished = ko.observable(false)
 
