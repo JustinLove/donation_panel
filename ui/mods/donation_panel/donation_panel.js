@@ -18,7 +18,9 @@ require(['donation_panel/feed_view'], function(feed_view) {
 
   handlers.update_feed = model.manualUpdate
 
-  handlers.cheat_allow_create_unit = model.cheatAllowCreateUnit
+  if (model.cheatAllowCreateUnit) {
+    handlers.cheat_allow_create_unit = model.cheatAllowCreateUnit
+  }
 
   handlers.player_names = model.playerNames
   handlers.planet_names = model.planetNames

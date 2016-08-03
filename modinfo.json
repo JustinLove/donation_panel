@@ -16,6 +16,9 @@
     "settings": [
       "coui://ui/mods/donation_panel/settings.js"
     ],
+    "start": [
+      "coui://ui/mods/donation_panel/live_game.js"
+    ],
     "live_game": [
       "coui://ui/mods/donation_panel/live_game.js"
     ],
