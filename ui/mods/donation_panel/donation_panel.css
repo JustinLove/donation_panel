@@ -138,8 +138,6 @@ tbody.finished {
   padding-left: 1em;
 }
 
-.comment pre {
-  color: white;
-  background-color: transparent;
-  border: none;
+.comment {
+  white-space: pre-line;
 }
