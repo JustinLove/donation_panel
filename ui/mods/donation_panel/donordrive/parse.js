@@ -3,14 +3,14 @@ define([], function() {
     // jQuery y u fetch images?
     html = html.replace(/img/g, 'ximg')
     // trim: leading blank line will throw invalid
-    var $donors = $(html.trim()).find('#donors td')
+    var $donors = $(html.trim()).find('#donors td, #team td')
     //console.log([html, $donors])
     return $donors.map(function(i, donor) {
-      var donorAmount = $(donor).find('.donor-detail strong.block').text().split('donated')
+      var donorAmount = $(donor).find('strong.block').text().split('donated')
       var amount = parseInt(donorAmount[1].match(/\d+(\.\d+)?/)[0], 10)
       var donor_name = donorAmount[0].trim()
       var donor_image = $(donor).find('ximg.member-avatar').attr('src').replace(/^\/\//, 'http://')
-      var comment = $(donor).find('.donor-detail em').text().trim()
+      var comment = $('<div/>').html($(donor).find('em').html().replace(/<br>/g, "\n")).text().trim()
 
       return {
         amount: amount,

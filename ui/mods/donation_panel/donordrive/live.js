@@ -4,7 +4,9 @@ define(['donation_panel/donordrive/parse'], function(parse) {
   //var donations = "coui://ui/mods/donation_panel/donordrive/sample.htm"
 
   var update = function(url) {
-    return $.get(url || donations).then(parse.process)
+    return $.get(url || donations).then(parse.process, function() {
+      console.log('fetch failed', arguments)
+    })
   }
 
   return {

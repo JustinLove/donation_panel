@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.5.1
+
+- Update donordrive scrape formatting based on current event page
+
 ## 1.5.0
 
 - Add donordrive support

@@ -1,7 +1,8 @@
 define(['donation_panel/donordrive/parse'], function(parse) {
   var testSequence = [
     //"coui://ui/mods/donation_panel/donordrive/sample.htm",
-    "coui://ui/mods/donation_panel/donordrive/test.htm",
+    "coui://ui/mods/donation_panel/donordrive/sample201609.html",
+    //"coui://ui/mods/donation_panel/donordrive/test.htm",
   ]
 
   var update = function() {
