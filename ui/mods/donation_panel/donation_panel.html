@@ -28,6 +28,9 @@
                   <span data-bind="foreach: matchingPlanets">
                     <span class="planet" data-bind="text: $data"></span>
                   </span>
+                  <span data-bind="foreach: matchingMatches">
+                    <span class="match" data-bind="text: $data"></span>
+                  </span>
                   <span colspan="4" data-bind="foreach: unexecutedOrders">
                     <span class="uncode" data-bind="text: code"></span>
                   </span>

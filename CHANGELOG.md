@@ -1,8 +1,9 @@
 # Donation Panel Changelog
 
-## 1.5.1
+## 1.6.0
 
 - Update donordrive scrape formatting based on current event page
+- Filter for current match
 
 ## 1.5.0
 

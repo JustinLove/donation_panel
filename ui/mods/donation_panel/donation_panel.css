@@ -131,6 +131,12 @@ tbody.finished {
   font-weight: bold;
 }
 
+.match {
+  background:#888;
+  color: black;
+  font-weight: bold;
+}
+
 .minimum {
   font-size: 20px;
   color: #ff0;

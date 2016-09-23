@@ -14,6 +14,7 @@ define([
         var dm = Donation(d)
         dm.matchPlayers(viewModel.playerNames())
         dm.matchPlanets(viewModel.planetNames())
+        dm.matchMatches(config.match_tags(), config.current_match())
         knownDonations[d.id] = dm
         viewModel.donations.push(dm)
       }

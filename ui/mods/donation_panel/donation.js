@@ -23,7 +23,20 @@ define(['donation_panel/menu'], function(menu) {
       if (this.matchingPlanets().length == 1) {
         this.matchingPlanetIndex = planets.indexOf(this.matchingPlanets()[0])
       }
-    }
+    },
+    matchMatches: function(matchTags, currentMatch) {
+      var words = this.comment.match(/\b\w{3,}\b/g)
+      if (!words) return
+
+      var re = new RegExp(words.join('|'), 'i')
+      this.matchingMatches(matchTags.filter(function(match) {
+        return match && match.match(re)
+      }))
+      if (this.matchingMatches().length > 0 && this.matchingMatches().indexOf(currentMatch) == -1) {
+        this.finished(true)
+        this.unexecutedOrders([])
+      }
+    },
   }
 
   var expandSimpleMultiples = function(model) {
@@ -95,6 +108,7 @@ define(['donation_panel/menu'], function(menu) {
     model.matchingPlayerIndex = -1
     model.matchingPlanets = ko.observable()
     model.matchingPlanetIndex = -1
+    model.matchingMatches = ko.observable()
 
     return model
   }
