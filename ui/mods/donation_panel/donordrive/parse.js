@@ -1,7 +1,7 @@
 define([], function() {
   var process = function(html) {
     // jQuery y u fetch images?
-    html = html.replace(/img/g, 'ximg')
+    html = html.replace(/<img/g, '<ximg')
     // trim: leading blank line will throw invalid
     var $donors = $(html.trim()).find('#donors td, #team td')
     //console.log([html, $donors])
@@ -16,6 +16,7 @@ define([], function() {
         amount: amount,
         comment: comment,
         donor_name: donor_name,
+        donor_image: donor_image,
         id: donor_name + amount.toString() + comment,
       }
     }).get().reverse()
