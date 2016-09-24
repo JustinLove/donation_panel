@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.6.1
+
+- Prevent error when donation has no comment
+
 ## 1.6.0
 
 - Update donordrive scrape formatting based on current event page
