@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.6.2
+
+- Prevent error when donation has no amount
+
 ## 1.6.1
 
 - Prevent error when donation has no comment
