@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 1.7.0
+
+- Add feed from 2016 event
+
 ## 1.6.2
 
 - Prevent error when donation has no amount
