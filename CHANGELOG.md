@@ -3,6 +3,7 @@
 ## 1.7.0
 
 - Add feed from 2016 event
+- Add feed from our own data server, currently localhost
 
 ## 1.6.2
 

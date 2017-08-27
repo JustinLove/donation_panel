@@ -8,6 +8,7 @@ define([
   'donation_panel/gofundme/live',
   'donation_panel/donordrive/test',
   'donation_panel/donordrive/live',
+  'donation_panel/donation_config/live',
 ], function(
   tiltify_local,
   tiltify_api_test,
@@ -17,7 +18,8 @@ define([
   gofundme_test,
   gofundme_live,
   donordrive_test,
-  donordrive_live
+  donordrive_live,
+  donation_config_live
 ) {
   return {
     tiltify_local: tiltify_local,
@@ -29,5 +31,6 @@ define([
     gofundme_live: gofundme_live,
     donordrive_test: donordrive_test,
     donordrive_live: donordrive_live,
+    donation_config_live: donation_config_live,
   }
 })

@@ -6,6 +6,7 @@
       options: [
         'donordrive_test',
         'donordrive_live',
+        'donation_config_live',
         'fundrazr_test',
         'fundrazr_live',
         'gofundme_test',
