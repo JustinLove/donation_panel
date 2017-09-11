@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 2.0.0
+
+- Extract data sources to donation data
+
 ## 1.7.0
 
 - Add feed from 2016 event

@@ -1,6 +1,6 @@
 define([
-  'donation_panel/config',
-  'donation_panel/feed',
+  'donation_data/config',
+  'donation_data/feed',
   'donation_panel/donation'
 ], function(config, feed, Donation) {
   var nullOrder = {build: []}
