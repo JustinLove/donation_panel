@@ -16,9 +16,37 @@ define([
         dm.matchPlanets(viewModel.planetNames())
         dm.matchMatches(config.match_tags(), config.current_match())
         knownDonations[d.id] = dm
-        viewModel.donations.push(dm)
+        viewModel.donations.unshift(dm)
       }
     })
+    stableSort(viewModel.donations(), function(a, b) {return a.priority - b.priority})
+  }
+
+  // https://stackoverflow.com/a/45422645/30203
+  var stableSort = function(array, compareFunction) {
+    'use strict'
+
+    var length = array.length
+    var entries = Array(length)
+    var index
+
+    // wrap values with initial indices
+    for (index = 0; index < length; index++) {
+      entries[index] = [index, array[index]]
+    }
+
+    // sort with fallback based on initial indices
+    entries.sort(function (a, b) {
+      var comparison = Number(compareFunction(a[1], b[1]))
+      return comparison !== 0 ? comparison : a[0] - b[0]
+    })
+
+    // re-map original array to stable sorted values
+    for (index = 0; index < length; index++) {
+      array[index] = entries[index][1]
+    }
+
+    return array
   }
 
   var autoUpdate = function() {
@@ -72,7 +100,7 @@ define([
     donationWithOrders: function() {
       return viewModel.donations().filter(function(donation) {
         return donation.unexecutedOrders().length > 0 && !donation.insufficient()
-      })[0] || Donation({})
+      }).reverse()[0] || Donation({})
     },
     update: function() {
       viewModel.name(config.name())

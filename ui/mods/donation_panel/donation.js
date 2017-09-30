@@ -106,6 +106,8 @@ define(['donation_panel/menu'], function(menu) {
 
     model.unaccounted = ko.observable(model.minimum < model.amount)
 
+    model.priority = model.amount - model.minimum
+
     model.matchingPlayers = ko.observable()
     model.matchingPlayerIndex = -1
     model.matchingPlanets = ko.observable()

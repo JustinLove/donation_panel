@@ -89,6 +89,21 @@ tbody.finished {
   font-weight: bold;
 }
 
+.priority {
+  color: #444;
+  text-align: right;
+  font-weight: bold;
+  padding-right: 0.5em;
+}
+
+.insufficient .priority {
+  color: #fff;
+}
+
+.unaccounted .priority {
+  color: #fff;
+}
+
 .donor_name {
   text-align: right;
   color: #888;
