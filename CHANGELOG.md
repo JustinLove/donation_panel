@@ -1,5 +1,10 @@
 # Donation Panel Changelog
 
+## 2.1.0
+
+- Sort by amount over or under minimum.
+- Respond to discount level changes from sandbox unit menu
+
 ## 2.0.0
 
 - Extract data sources to donation data

@@ -33,8 +33,11 @@ define(function() {
     codes: /alsfjdlskfjlkdsjflksajf/
   }
 
-  require(['sandbox_unit_menu/menu'], function(loadedMenu) {
+  require(['sandbox_unit_menu/menu', 'sandbox_unit_menu/discounts'], function(loadedMenu, discounts) {
     menu.menu = loadedMenu
+    menu.setDiscountLevel = function(level) {
+      discounts.discounts(menu.menu, level)
+    }
 
     loadedMenu.forEach(function(item) {
       menu.menuMap[item.code] = item

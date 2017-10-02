@@ -1,8 +1,9 @@
 define([
   'donation_data/config',
   'donation_data/feed',
-  'donation_panel/donation'
-], function(config, feed, Donation) {
+  'donation_panel/donation',
+  'donation_panel/menu'
+], function(config, feed, Donation, menu) {
   var nullOrder = {build: []}
   var unfinished = function(donation) {return !donation.finished()}
 
@@ -19,7 +20,7 @@ define([
         viewModel.donations.unshift(dm)
       }
     })
-    stableSort(viewModel.donations(), function(a, b) {return a.priority - b.priority})
+    viewModel.donations(stableSort(viewModel.donations(), function(a, b) {return a.priority - b.priority}))
   }
 
   // https://stackoverflow.com/a/45422645/30203
@@ -61,6 +62,7 @@ define([
     playerNames: ko.observableArray([]),
     planetNames: ko.observableArray([]),
     donations: ko.observableArray([]),
+    discountLevel: ko.observable(0),
     currentDonation: ko.observable(Donation({})),
     currentOrder: ko.observable(nullOrder),
     select: function(donation) {
@@ -141,6 +143,13 @@ define([
     viewModel.donations().forEach(function(donation) {
       donation.matchPlanets(names)
     })
+  })
+  viewModel.discountLevel.subscribe(function(level) {
+    menu.setDiscountLevel(level)
+    viewModel.donations(viewModel.donations().map(Donation))
+    viewModel.currentDonation(Donation({}))
+    viewModel.currentOrder(nullOrder)
+    viewModel.donations(stableSort(viewModel.donations(), function(a, b) {return a.priority - b.priority}))
   })
 
   return viewModel

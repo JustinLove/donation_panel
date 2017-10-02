@@ -26,6 +26,8 @@ require(['donation_panel/feed_view'], function(feed_view) {
   handlers.player_names = model.playerNames
   handlers.planet_names = model.planetNames
 
+  globalHandlers['sandbox_unit_menu.discount_level'] = model.discountLevel
+
   // inject per scene mods
   if (scene_mod_list['donation_panel'])
       loadMods(scene_mod_list['donation_panel']);
