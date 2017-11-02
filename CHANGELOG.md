@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 2.2.0
+
+- Support subscribable data sources
+
 ## 2.1.0
 
 - Sort by amount over or under minimum.
