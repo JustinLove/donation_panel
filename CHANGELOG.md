@@ -3,6 +3,7 @@
 ## 2.2.0
 
 - Support subscribable data sources
+- Support updates to donations still in the list
 
 ## 2.1.0
 

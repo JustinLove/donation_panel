@@ -9,15 +9,25 @@ define([
 
   var knownDonations = {}
 
+  var makeModel = function(d) {
+    var dm = Donation(d)
+    dm.matchPlayers(viewModel.playerNames())
+    dm.matchPlanets(viewModel.planetNames())
+    dm.matchMatches(config.match_tags(), config.current_match())
+    knownDonations[d.id] = dm
+    return dm
+  }
+
   var integrateDonations = function(incoming) {
     incoming.forEach(function(d) {
-      if (!knownDonations[d.id]) {
-        var dm = Donation(d)
-        dm.matchPlayers(viewModel.playerNames())
-        dm.matchPlanets(viewModel.planetNames())
-        dm.matchMatches(config.match_tags(), config.current_match())
-        knownDonations[d.id] = dm
-        viewModel.donations.unshift(dm)
+      if (knownDonations[d.id]) {
+        var matching = viewModel.donations().filter(function(dm) { console.log(dm.id, d.id); return dm.id == d.id})
+        if (matching.length < 1) return
+        var dm = matching[0]
+        if (dm.selected() || dm.finished()) return
+        viewModel.donations.replace(dm, makeModel(d))
+      } else {
+        viewModel.donations.unshift(makeModel(d))
       }
     })
     viewModel.donations(stableSort(viewModel.donations(), function(a, b) {return a.priority - b.priority}))
