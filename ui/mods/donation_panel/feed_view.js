@@ -21,7 +21,7 @@ define([
   var integrateDonations = function(incoming) {
     incoming.forEach(function(d) {
       if (knownDonations[d.id]) {
-        var matching = viewModel.donations().filter(function(dm) { console.log(dm.id, d.id); return dm.id == d.id})
+        var matching = viewModel.donations().filter(function(dm) { return dm.id == d.id})
         if (matching.length < 1) return
         var dm = matching[0]
         if (dm.selected() || dm.finished()) return
@@ -62,7 +62,6 @@ define([
 
   var autoUpdate = function() {
     if (feed[config.feed()].subscribe) {
-      viewModel.update()
       feed[config.feed()].subscribe(integrateDonations)
     } else {
       viewModel.update()
