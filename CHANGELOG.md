@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 2.3.0
+
+- Apply donation specifict discount levels if available
+
 ## 2.2.0
 
 - Support subscribable data sources

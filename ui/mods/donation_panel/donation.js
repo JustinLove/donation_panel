@@ -1,4 +1,4 @@
-define(['donation_panel/menu'], function(menu) {
+define(['sandbox_unit_menu/discounts'], function(discounts) {
   var prototype = {
     matchPlayers: function(players) {
       var words = this.comment.match(/\b\w{3,}\b/g)
@@ -38,6 +38,29 @@ define(['donation_panel/menu'], function(menu) {
         this.finished(true)
         this.unexecutedOrders([])
       }
+    },
+    matchMenu: function(menu) {
+      this.codes = menu.match(this.comment)
+      if (typeof(this.discount_level) == "number") {
+        this.orders = discounts.discounts(menu.orders(this.codes), this.discount_level)
+      } else {
+        this.orders = menu.orders(this.codes)
+      }
+
+      compressBulkMultiples(this)
+
+      this.unexecutedOrders = ko.observableArray(this.orders.concat())
+
+      this.minimum = this.orders
+        .map(function(o) {return o.donation})
+        .reduce(function(a, b) {return a + b}, 0)
+      this.insufficient = this.minimum > this.amount
+
+      expandSimpleMultiples(this)
+
+      this.unaccounted = this.minimum < this.amount
+
+      this.priority = this.amount - this.minimum
     },
   }
 
@@ -91,22 +114,13 @@ define(['donation_panel/menu'], function(menu) {
     model.selected = ko.observable(false)
     model.finished = ko.observable(false)
 
-    model.codes = menu.match(model.comment)
-    model.orders = menu.orders(model.codes)
-
-    compressBulkMultiples(model)
-
-    model.unexecutedOrders = ko.observableArray(model.orders.concat())
-    model.minimum = model.orders
-      .map(function(o) {return o.donation})
-      .reduce(function(a, b) {return a + b}, 0)
-    model.insufficient = ko.observable(model.minimum > model.amount)
-
-    expandSimpleMultiples(model)
-
-    model.unaccounted = ko.observable(model.minimum < model.amount)
-
-    model.priority = model.amount - model.minimum
+    model.codes = []
+    model.orders = []
+    model.unexecutedOrders = ko.observableArray([])
+    model.minimum = 0
+    model.insufficient = false
+    model.unaccounted = false
+    model.priority = 0
 
     model.matchingPlayers = ko.observable()
     model.matchingPlayerIndex = -1

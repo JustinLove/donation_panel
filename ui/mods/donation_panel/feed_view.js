@@ -11,6 +11,7 @@ define([
 
   var makeModel = function(d) {
     var dm = Donation(d)
+    dm.matchMenu(menu)
     dm.matchPlayers(viewModel.playerNames())
     dm.matchPlanets(viewModel.planetNames())
     dm.matchMatches(config.match_tags(), config.current_match())
@@ -160,7 +161,7 @@ define([
   })
   viewModel.discountLevel.subscribe(function(level) {
     menu.setDiscountLevel(level)
-    viewModel.donations(viewModel.donations().map(Donation))
+    viewModel.donations(viewModel.donations().map(makeModel))
     viewModel.currentDonation(Donation({}))
     viewModel.currentOrder(nullOrder)
     viewModel.donations(stableSort(viewModel.donations(), function(a, b) {return a.priority - b.priority}))
