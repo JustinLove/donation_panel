@@ -54,11 +54,11 @@ define(['sandbox_unit_menu/discounts'], function(discounts) {
       this.minimum = this.orders
         .map(function(o) {return o.donation})
         .reduce(function(a, b) {return a + b}, 0)
-      this.insufficient = this.minimum > this.amount
+      this.insufficient = ko.observable(this.minimum > this.amount)
 
       expandSimpleMultiples(this)
 
-      this.unaccounted = this.minimum < this.amount
+      this.unaccounted = ko.observable(this.minimum < this.amount)
 
       this.priority = this.amount - this.minimum
     },
