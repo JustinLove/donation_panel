@@ -29,7 +29,7 @@ body-dock {
   border-width:14px 22px 22px 22px;
   box-shadow: inset 1000px 1000px 1000px 1000px #000;
   position: relative;
-  min-width: 20em;
+  min-width: 30em;
   min-height: 5em;
 }
 

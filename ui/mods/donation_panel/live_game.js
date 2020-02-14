@@ -22,6 +22,7 @@
 
 require(['donation_panel/panel'], function(panel) {
   panel.show()
+  $('#planets').css({right: 360})
 
   if (model.cheatAllowCreateUnit) {
     api.Panel.message('donation_panel', 'cheat_allow_create_unit', model.cheatAllowCreateUnit())
