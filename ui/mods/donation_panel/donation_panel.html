@@ -13,16 +13,17 @@
       <div class="donation_panel" data-bind="visible: visible">
         <div class="donation_panel_cont">
           <table data-bind="foreach: donations">
-            <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected, finished: finished, insufficient: insufficient, unaccounted: unaccounted}">
+            <tbody data-bind="click: function() {$parent.select($data)}, css: {selected: selected, finished: finished, insufficient: insufficient, unaccounted: unaccounted, discounted: discount_level}">
               <tr>
                 <td class="amount" data-bind="text: amount">$$</td>
                 <td class="min-total" data-bind="text: minimum">$$</td>
                 <td class="priority" data-bind="text: priority">$$</td>
+                <td class="discount_level" data-bind="text: discount_level">$$</td>
                 <td class="donor_name" data-bind="text: donor_name">Doner</td>
                 <td class="cancel" data-bind="click: function(donation, e) {$parent.cancel(donation); e.stopPropagation()}">X</td>
               </tr>
               <tr>
-                <td colspan="4">
+                <td colspan="6">
                   <span data-bind="foreach: matchingPlayers">
                     <span class="player" data-bind="text: $data"></span>
                   </span>
@@ -32,13 +33,13 @@
                   <span data-bind="foreach: matchingMatches">
                     <span class="match" data-bind="text: $data"></span>
                   </span>
-                  <span colspan="4" data-bind="foreach: unexecutedOrders">
+                  <span colspan="6" data-bind="foreach: unexecutedOrders">
                     <span class="uncode" data-bind="text: code"></span>
                   </span>
                 </td>
               </tr>
               <tr>
-                <td class="comment" colspan="4" data-bind="text: comment">comment</td>
+                <td class="comment" colspan="6" data-bind="text: comment">comment</td>
               </tr>
             </tbody>
           </table>

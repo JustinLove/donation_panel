@@ -104,6 +104,14 @@ tbody.finished {
   color: #fff;
 }
 
+.discount_level {
+  color: #444;
+}
+
+.discounted .discount_level {
+  color: #fff;
+}
+
 .donor_name {
   text-align: right;
   color: #888;

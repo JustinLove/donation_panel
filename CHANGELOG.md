@@ -1,8 +1,12 @@
 # Donation Panel Changelog
 
+## 2.4.0
+
+- Show donation specific donation levels in feed
+
 ## 2.3.0
 
-- Apply donation specifict discount levels if available
+- Apply donation specific discount levels if available
 
 ## 2.2.0
 
