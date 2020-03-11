@@ -93,7 +93,7 @@ When that code is complete, alt+n will advance to the next code, and mark the cu
 
 Under ideal circumstances, order execution is alt+n to select a code, and one or more alt+v to place them.
 
-The feed will automatically update with new entries. You can also use alt+u to force and update. alt+u will also clear finished entries from the list. Donations for other matches may be present at startup, marked as finished. press alt+u to clear.
+The feed will automatically update with new entries. You can also use alt+u to force an update. alt+u will also clear finished entries from the list. Donations for other matches may be present at startup, marked as finished. press alt+u to clear.
 
 ### Discounts (optional section)
 
@@ -126,6 +126,40 @@ For local information and other feeds the menu codes list has two buttons (the l
 - Systems TBD - WPMarshall map pack
   - Finals: Final Destination
 - At least 4 spectators (2 casters, 2 puppetmasters)
+
+## Caster Setup
+
+### Locally installed mods
+
+- [Donation Announcer](https://github.com/JustinLove/donation_announcer) - provides the donation feed in-game
+- [Donation Data](https://github.com/JustinLove/donation_data) - suport framework for donation announcer
+- [Sandbox Unit Menu](https://github.com/JustinLove/sandbox_unit_menu) - Contains menu data
+
+### Pregame setup
+
+Settings, Gameplay, Donation Data section.
+
+Donation feed can be used to select test feed for practice, such as `donation_config_local`. The event will use `donation_config_live`.
+
+`Feed api key` is not needed by either of these feeds.
+
+Match tags lists all valid match tags. Donations without a valid tag will show up in the feed for possible consideration.
+
+Match tags for 2020 will be `matcha,matchb,matchc,matchd,finals,justgiving` (paste or enter this value)
+
+Match tags for local feeds while testing will probably be `matchred,matchblue,matchyellow,matchgreen,finals,justgiving`
+
+Current match should be set before each game, e.g. `matcha`, `matchb` etc. This will allow donation announcer to filter donations to the current game.
+
+### Ingame
+
+(All keybindings show as default, changeable in settings)
+
+Panel can be closed and opened with a options bar icon, uses same icon as pov camera, at the left of the icon list.
+
+alt+n or the `>` button will advance to the next donation
+
+The feed will automatically update with new entries. You can also use alt+u to force an update. alt+u will also clear finished entries from the list. Donations for other matches may be present at startup, marked as finished. press alt+u to clear.
 
 ## Installing mods locally
 
