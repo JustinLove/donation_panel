@@ -1,5 +1,9 @@
 # Donation Panel Changelog
 
+## 2.4.1
+
+- Filter out common words from player and planet name matching
+
 ## 2.4.0
 
 - Show donation specific donation levels in feed

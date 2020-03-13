@@ -1,31 +1,42 @@
 define(['sandbox_unit_menu/discounts'], function(discounts) {
+  var atLeastThree = /\b\w{3,}\b/g
+  var commonWords = /^(the|with|and|you|that|that's|was|for|his|her|they|have|this|from|had|but|what|there|were|your|when|use|how|she|which|their|then|them|these|him|hers|has|did|than|any|where|one)$/i
   var prototype = {
     matchPlayers: function(players) {
-      var words = this.comment.match(/\b\w{3,}\b/g)
+      var words = this.comment.match(atLeastThree)
       if (!words) return
 
-      var re = new RegExp(words.join('|'), 'i')
-      this.matchingPlayers(players.filter(function(player) {
+      var uncommonWords = words.filter(function(word) {
+        return !word.match(commonWords)
+      })
+
+      var re = new RegExp(uncommonWords.join('|'), 'i')
+      this.matchingPlayers = players.filter(function(player) {
         return player.match(re)
-      }))
-      if (this.matchingPlayers().length == 1) {
-        this.matchingPlayerIndex = players.indexOf(this.matchingPlayers()[0])
+      })
+      if (this.matchingPlayers.length == 1) {
+        this.matchingPlayerIndex = players.indexOf(this.matchingPlayers[0])
       }
     },
     matchPlanets: function(planets) {
-      var words = this.comment.match(/\b\w{3,}\b/g)
+      var words = this.comment.match(atLeastThree)
       if (!words) return
 
-      var re = new RegExp(words.join('|'), 'i')
-      this.matchingPlanets(planets.filter(function(planet) {
+      var uncommonWords = words.filter(function(word) {
+        //console.log(word, word.match(commonWords))
+        return !word.match(commonWords)
+      })
+
+      var re = new RegExp(uncommonWords.join('|'), 'i')
+      this.matchingPlanets = planets.filter(function(planet) {
         return planet && planet.match(re)
-      }))
-      if (this.matchingPlanets().length == 1) {
-        this.matchingPlanetIndex = planets.indexOf(this.matchingPlanets()[0])
+      })
+      if (this.matchingPlanets.length == 1) {
+        this.matchingPlanetIndex = planets.indexOf(this.matchingPlanets[0])
       }
     },
     matchMatches: function(matchTags, currentMatch) {
-      var words = this.comment.match(/\b\w{3,}\b/g)
+      var words = this.comment.match(atLeastThree)
       if (!words) return
 
       var re = new RegExp(words.join('|'), 'i')
